@@ -1,6 +1,6 @@
 <?php
 
-namespace Pbjuhr\FlashMessages;
+namespace PBjuhr\FlashMessages;
  
 /**
  * Class for generating and displaying flash messages.
