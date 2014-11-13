@@ -41,7 +41,7 @@ Four different types of messages can be generated. Info, Success, Warnings or Er
 Five functions exist to add messages:
 ```php
 $content = "<strong>Heads up!</strong> This is a flash message.";
-$type = "info"; */ "info", "success", "warning" or "error" */
+$type = "info"; /* "info", "success", "warning" or "error" */
 
 $myFlashMessagesObject->add($type, $content);
 $myFlashMessagesObject->addInfo($content);
