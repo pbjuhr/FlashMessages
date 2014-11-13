@@ -67,6 +67,7 @@ Each message gets printed in the following format:
 ```html
 <div class="myCssClass myCssClass-type" role="alert">Content</div>
 ```
+Where type is either success, info, warning or danger. (Bootstrap standard)
 Note! The getHtml sets the messages session to NULL.
 
 License 
