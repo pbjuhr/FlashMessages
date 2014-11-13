@@ -7,10 +7,15 @@ Php class for generating and displaying flash messages.
 How to use
 -------------
 
-###1. Include FlashMessages in your project
+###1. Download
 
-###2. Generate messages
+The easiest way is to download using composer.
+To do so, require: "pbjuhr/flashmessages": "dev-master"
 
-###3. Display messages
+###2. Include in your project
 
-###4. Options
+###3. Generate messages
+
+###4. Display messages
+
+###5. Options
