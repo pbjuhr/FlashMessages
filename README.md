@@ -29,6 +29,9 @@ $di->setShared('FlashMessages', function() use ($di) {
 });
 ```
 
+Not using ANAX?
+Replace FlashMessages.php with FlashMessages_NoANAX.php and include it in your project.
+
 ###3. Generate messages
 
 ###4. Display messages
