@@ -13,4 +13,4 @@ How to use
 
 ###3. Display messages
 
-###4. 
+###4. Options
