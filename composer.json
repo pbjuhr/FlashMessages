@@ -1,8 +1,8 @@
 {
     "name": "pbjuhr/flashmessages",    
     "type": "library",
-    "description": "Php class for generating and displaying flash messages.",
-    "keywords": ["flash", "messages", "flashmessages"],
+    "description": "Php class for generating and displaying messages to the user.",
+    "keywords": ["flash", "messages", "status"],
     "homepage": "http://pbjuhr.se",
     "license": "MIT",
     "authors": [
