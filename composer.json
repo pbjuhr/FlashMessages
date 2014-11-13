@@ -1,0 +1,22 @@
+{
+    "name": "pbjuhr/flashmessages",    
+    "type": "library",
+    "description": "Php class for generating and displaying flash messages.",
+    "keywords": ["flash", "messages", "flashmessages"],
+    "homepage": "http://pbjuhr.se",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Peter Bjuhr",
+            "email": "bjuhr.peter@gmail.com",
+            "homepage": "http://pbjuhr.se",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": { "PBjuhr\\": "src/" }
+    }
+}
