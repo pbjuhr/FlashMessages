@@ -6,7 +6,7 @@ namespace PBjuhr\FlashMessages;
  * Class for generating and displaying flash messages.
  *
  */
-class FlashMessagesNo{
+class FlashMessages{
 
     private $sessionKey;
 
