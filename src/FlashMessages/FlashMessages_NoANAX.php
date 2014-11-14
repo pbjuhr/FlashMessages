@@ -6,17 +6,17 @@ namespace PBjuhr\FlashMessages;
  * Class for generating and displaying flash messages.
  *
  */
-class FlashMessages{
+class FlashMessagesNo{
 
-    use \Anax\DI\TInjectable;
+    private $sessionKey;
 
 
 
     /**
-     * Contructor, sets di
+     * Contructor, sets variables.
      */
-    public function __construct($di){
-		$this->di = $di;
+    public function __construct(){
+		$this->sessionKey = "FlashMessages";
 	}
 
 
@@ -27,7 +27,10 @@ class FlashMessages{
      * @return all messages
      */
     public function findAll(){
-		return $this->session->get('FlashMessages', []);
+    	if( isset($_SESSION[$this->sessionKey]) )
+    		return $_SESSION[$this->sessionKey];
+
+		return [];
 	}
 
 
@@ -54,7 +57,7 @@ class FlashMessages{
 			"content" => $content,
 		];
 
-		$this->session->set('FlashMessages', $messages);
+		$_SESSION[$this->sessionKey] = $messages;
 
 	}
 
@@ -142,7 +145,7 @@ class FlashMessages{
 	 * @return void
 	 */
 	public function clean(){
-		$this->session->set('FlashMessages', NULL);
+		$_SESSION[$this->sessionKey] = NULL;
 	}
 
 }
