@@ -20,7 +20,8 @@ Do not forget to run composer update!
 Don't wanna use Composer? Download .zip from this page!
 
 ###2. Include in your project
-Session must be started first. To include FlashMessages in your ANAX-application, add the class in your front
+Session must be started before using FlashMessages.  
+To include FlashMessages in your ANAX-application, add the class in your front
 controller:
 ```php
 $di->setShared('FlashMessages', function() use ($di) { 
@@ -29,7 +30,7 @@ $di->setShared('FlashMessages', function() use ($di) {
 });
 ```
 
-Not using ANAX?
+__Not using ANAX?__
 Replace FlashMessages.php with FlashMessages_NoANAX.php and include it in your project.
 ```php
 require "FlashMessages.php"
