@@ -13,7 +13,7 @@ class FlashMessagesNo{
 
 
     /**
-     * Contructor, sets variables.
+     * Contructor, sets session key.
      */
     public function __construct(){
 		$this->sessionKey = "FlashMessages";
