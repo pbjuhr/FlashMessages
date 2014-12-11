@@ -4,18 +4,5 @@ php:
     - 5.4
     - hhvm
 
-before_script:
-    - wget http://getcomposer.org/composer.phar
-    - php composer.phar install --dev --no-interaction
-    - wget https://scrutinizer-ci.com/ocular.phar
-
 script: 
-    - mkdir -p build/logs
-    - phpunit --bootstrap test/config.php --coverage-clover build/logs/clover.xml test
-
-after_script:
-    - php mosbth/bin/coveralls -v
-    - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
-
-
-
+    - phpunit --bootstrap test/config.php test
