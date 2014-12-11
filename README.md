@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/pbjuhr/FlashMessages.svg?branch=master)](https://travis-ci.org/pbjuhr/FlashMessages)
+[![Code Coverage](https://scrutinizer-ci.com/g/pbjuhr/FlashMessages/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/pbjuhr/FlashMessages/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pbjuhr/FlashMessages/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pbjuhr/FlashMessages/?branch=master)
 
 FlashMessages
 =============
