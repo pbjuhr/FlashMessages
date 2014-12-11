@@ -7,15 +7,26 @@ namespace PBjuhr\FlashMessages;
  */
 class FlashMessagesTest extends \PHPUnit_Framework_TestCase {
     
-    private $fm;
+    protected $fm;
+
+
+
 
     /**
-     * Test
      * Creates an instance of the FlashMessage class
      */
-    public function testCreateElement() {
-        $fm = new FlashMessages();
-        $this->assertEquals("hello", "hello", "Error message.");
+    public static function setUpBeforeClass() {
+        $this->$fm = new FlashMessages();
+    }
+
+
+
+
+    /**
+     * Tests getSessionKey method
+     */
+    public function testgetSessionKey() {
+        $this->assertEquals($fm->getSessionKey(), "FlashMessages", "Wrong session key.");
     }
 
 }
