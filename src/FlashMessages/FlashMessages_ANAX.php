@@ -28,7 +28,7 @@ class FlashMessages {
 	 * Sets a new session key, copy the old values & cleans the old session key
 	 * @param [string] $newKey [The new session key]
 	 */
-	public function replaceSessionKey($newKey) {
+	public function changeSessionKey($newKey) {
 		$messages = $this->findAll();
 		
 		/* if no messages exist */
@@ -67,13 +67,13 @@ class FlashMessages {
 
 	/**
 	 * Adds a flash message to the session
-	 *
-	 * @param type (required), the type of message "info", "warning", "success" or "error".
+	 * 
 	 * @param content (required), the message (can contain html)
+	 * @param type (required), the type of message "info", "warning", "success" or "error".
 	 *
 	 * @return void
 	 */
-	public function add($type, $content) {
+	public function add($content, $type) {
 
 		if($type !== "warning" && $type !== "success" && $type !== "error") {
 			$type = "info";
@@ -98,7 +98,7 @@ class FlashMessages {
 	 * @return void
 	 */
 	public function addInfo($content) {
-		$this->add("info", $content);
+		$this->add($content, "info");
 	}
 
 
@@ -110,7 +110,7 @@ class FlashMessages {
 	 * @return void
 	 */
 	public function addSuccess($content) {
-		$this->add("success", $content);
+		$this->add($content, "success");
 	}
 
 
@@ -122,7 +122,7 @@ class FlashMessages {
 	 * @return void
 	 */
 	public function addWarning($content) {
-		$this->add("warning", $content);
+		$this->add($content, "warning");
 	}
 
 
@@ -134,7 +134,7 @@ class FlashMessages {
 	 * @return void
 	 */
 	public function addError($content) {
-		$this->add("error", $content);
+		$this->add($content, "error");
 	}
 
 

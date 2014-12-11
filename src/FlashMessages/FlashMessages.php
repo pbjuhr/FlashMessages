@@ -15,7 +15,7 @@ class FlashMessages {
     /**
      * Contructor, sets session key.
      */
-    public function __construct($sessionKey = "FLashMessages") {
+    public function __construct($sessionKey = "FlashMessages") {
 		$this->sessionKey = $sessionKey;
 	}
 
@@ -26,7 +26,7 @@ class FlashMessages {
 	 * Sets a new session key, copy the old values & cleans the old session key
 	 * @param [string] $newKey [The new session key]
 	 */
-	public function replaceSessionKey($newKey) {
+	public function changeSessionKey($newKey) {
 		$messages = $this->findAll();
 		
 		/* if no messages exist */
@@ -69,12 +69,12 @@ class FlashMessages {
 	/**
 	 * Adds a flash message to the session
 	 *
-	 * @param type (required), the type of message "info", "warning", "success" or "error".
 	 * @param content (required), the message (can contain html)
+	 * @param type (required), the type of message "info", "warning", "success" or "error".
 	 *
 	 * @return void
 	 */
-	public function add($type, $content) {
+	public function add($content, $type) {
 
 		if($type !== "warning" && $type !== "success"  && $type !== "error") {
 			$type = "info";
