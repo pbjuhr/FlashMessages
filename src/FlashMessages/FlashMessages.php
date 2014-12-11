@@ -6,7 +6,7 @@ namespace PBjuhr\FlashMessages;
  * Class for generating and displaying flash messages.
  * @author Peter Bjuhr (www.pbjuhr.se, bjuhr.peter@gmail.com)
  */
-class FlashMessages{
+class FlashMessages {
 
     private $sessionKey;
 
@@ -15,8 +15,38 @@ class FlashMessages{
     /**
      * Contructor, sets session key.
      */
-    public function __construct(){
-		$this->sessionKey = "FlashMessages";
+    public function __construct($sessionKey = "FLashMessages") {
+		$this->sessionKey = $sessionKey;
+	}
+
+
+
+
+	/**
+	 * Sets a new session key, copy the old values & cleans the old session key
+	 * @param [string] $newKey [The new session key]
+	 */
+	public function replaceSessionKey($newKey) {
+		$messages = $this->findAll();
+		
+		/* if no messages exist */
+		if(count($messages) < 1) {
+			$_SESSION[$newKey] = $messages;
+		}
+
+		$this->clean();
+		$this->sessionKey = $newKey;
+	}
+
+
+
+
+	/**
+	 * Gets the session key
+	 * @return [String] [The session key]
+	 */
+	public function getSessionKey() {
+		return $this->sessionKey;
 	}
 
 
@@ -27,9 +57,9 @@ class FlashMessages{
      * @return all messages
      */
     public function findAll(){
-    	if( isset($_SESSION[$this->sessionKey]) )
+    	if(isset($_SESSION[$this->sessionKey])) {
     		return $_SESSION[$this->sessionKey];
-
+    	}
 		return [];
 	}
 
@@ -44,9 +74,9 @@ class FlashMessages{
 	 *
 	 * @return void
 	 */
-	public function add($type, $content){
+	public function add($type, $content) {
 
-		if($type != "warning" && $type != "success"  && $type != "error"){
+		if($type !== "warning" && $type !== "success"  && $type !== "error") {
 			$type = "info";
 		}
 
@@ -68,7 +98,7 @@ class FlashMessages{
 	 * @param $content (required), the message
 	 * @return void
 	 */
-	public function addInfo($content){
+	public function addInfo($content) {
 		$this->add("info", $content);
 	}
 
@@ -80,7 +110,7 @@ class FlashMessages{
 	 * @param $content (required), the message
 	 * @return void
 	 */
-	public function addSuccess($content){
+	public function addSuccess($content) {
 		$this->add("success", $content);
 	}
 
@@ -92,7 +122,7 @@ class FlashMessages{
 	 * @param $content (required), the message
 	 * @return void
 	 */
-	public function addWarning($content){
+	public function addWarning($content) {
 		$this->add("warning", $content);
 	}
 
@@ -104,7 +134,7 @@ class FlashMessages{
 	 * @param $content (required), the message
 	 * @return void
 	 */
-	public function addError($content){
+	public function addError($content) {
 		$this->add("error", $content);
 	}
 
@@ -116,19 +146,21 @@ class FlashMessages{
 	 * @param  $class (optional), sets a class to the div objects
 	 * @return $html, all messages formatted in html, or null if no messages exist
 	 */
-	public function getHtml($class = "alert"){
+	public function getHtml($class = "alert") {
 
         $messages = $this->findAll();
 		
 		/* if no messages exist */
-		if(count($messages) < 1)
+		if(count($messages) < 1) {
 			return NULL;
+		}
 
 		$html = '';
 
 		foreach ($messages as $message){
-			if ( $message["type"] == "error")
+			if($message["type"] == "error") {
 				$message["type"] = "danger"; 
+			}
 			$html .= '<div class="'. $class . ' '. $class . '-' .$message["type"].'" role="alert">'.$message["content"].'</div>';
 		}
 
@@ -144,7 +176,7 @@ class FlashMessages{
 	 * Resets the flash message session
 	 * @return void
 	 */
-	public function clean(){
+	public function clean() {
 		$_SESSION[$this->sessionKey] = NULL;
 	}
 
