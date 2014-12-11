@@ -3,14 +3,14 @@
 namespace PBjuhr\FlashMessages;
 
 /**
- * Test class for flash messages
+ * Test class for flash messages 
  */
 class FlashMessagesTest extends \PHPUnit_Framework_TestCase {
     
     protected $fm;
 
     /**
-     * Creates an instance of the FlashMessage class before every test
+     * Creates an instance of the FlashMessage class before every test runs
      */
     protected function setUp() {
         $this->fm = new FlashMessages();
