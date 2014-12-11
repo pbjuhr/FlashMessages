@@ -30,7 +30,7 @@ $di->setShared('FlashMessages', function() use ($di) {
 });
 ```
 
-__Not using ANAX?__
+####Not using ANAX?
 Replace FlashMessages.php with FlashMessages_NoANAX.php and include it in your project.
 ```php
 require "FlashMessages.php"
