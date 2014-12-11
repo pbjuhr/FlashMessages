@@ -8,15 +8,15 @@ namespace PBjuhr\FlashMessages;
  */
 class FlashMessages{
 
-    private $sessionKey;
+    use \Anax\DI\TInjectable;
 
 
 
     /**
-     * Contructor, sets session key.
+     * Contructor, sets di
      */
-    public function __construct(){
-		$this->sessionKey = "FlashMessages";
+    public function __construct($di){
+		$this->di = $di;
 	}
 
 
@@ -27,10 +27,7 @@ class FlashMessages{
      * @return all messages
      */
     public function findAll(){
-    	if( isset($_SESSION[$this->sessionKey]) )
-    		return $_SESSION[$this->sessionKey];
-
-		return [];
+		return $this->session->get('FlashMessages', []);
 	}
 
 
@@ -57,7 +54,7 @@ class FlashMessages{
 			"content" => $content,
 		];
 
-		$_SESSION[$this->sessionKey] = $messages;
+		$this->session->set('FlashMessages', $messages);
 
 	}
 
@@ -145,7 +142,7 @@ class FlashMessages{
 	 * @return void
 	 */
 	public function clean(){
-		$_SESSION[$this->sessionKey] = NULL;
+		$this->session->set('FlashMessages', NULL);
 	}
 
 }
