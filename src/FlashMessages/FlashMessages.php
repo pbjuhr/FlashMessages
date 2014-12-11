@@ -29,8 +29,8 @@ class FlashMessages {
 	public function changeSessionKey($newKey) {
 		$messages = $this->findAll();
 		
-		/* if no messages exist */
-		if(count($messages) < 1) {
+		/* if messages exist */
+		if(count($messages) > 0) {
 			$_SESSION[$newKey] = $messages;
 		}
 
