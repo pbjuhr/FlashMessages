@@ -12,17 +12,13 @@ class FlashMessages {
 
     private $sessionKey;
 
-
     /**
-     * Contructor, sets di
+     * Contructor, sets di and sessionKey
      */
     public function __construct($di, $sessionKey = "FlashMessages") {
 		$this->di = $di;
-		$this->$sessionKey = $sessionKey;
+		$this->sessionKey = $sessionKey;
 	}
-
-
-
 
 	/**
 	 * Sets a new session key, copy the old values & cleans the old session key
@@ -40,9 +36,6 @@ class FlashMessages {
 		$this->sessionKey = $newKey;
 	}
 
-
-
-
 	/**
 	 * Gets the session key
 	 * @return [String] [The session key]
@@ -51,19 +44,13 @@ class FlashMessages {
 		return $this->sessionKey;
 	}
 
-
-
-
     /**
      * Finds all Flashmessages from session
      * @return all messages
      */
     public function findAll() {
-		return $this->session->get($sessionKey, []);
+		return $this->session->get($this->sessionKey, []);
 	}
-
-
-
 
 	/**
 	 * Adds a flash message to the session
@@ -86,11 +73,9 @@ class FlashMessages {
 			"content" => $content,
 		];
 
-		$this->session->set($sessionKey, $messages);
+		$this->session->set($this->sessionKey, $messages);
 
 	}
-
-
 
 	/**
 	 * Adds an info message using the add method.
@@ -101,9 +86,6 @@ class FlashMessages {
 		$this->add($content, "info");
 	}
 
-
-
-
 	/**
 	 * Adds a success message using the add method.
 	 * @param $content (required), the message
@@ -112,9 +94,6 @@ class FlashMessages {
 	public function addSuccess($content) {
 		$this->add($content, "success");
 	}
-
-
-
 
 	/**
 	 * Adds a warning message using the add method.
@@ -125,9 +104,6 @@ class FlashMessages {
 		$this->add($content, "warning");
 	}
 
-
-
-
 	/**
 	 * Adds an error message using the add method.
 	 * @param $content (required), the message
@@ -136,9 +112,6 @@ class FlashMessages {
 	public function addError($content) {
 		$this->add($content, "error");
 	}
-
-
-
 
 	/**
 	 * [getHtml description]
@@ -168,15 +141,12 @@ class FlashMessages {
 		return $html;
 	}
 
-
-
-
 	/**
 	 * Resets the flash message session
 	 * @return void
 	 */
 	public function clean() {
-		$this->session->set($sessionKey, NULL);
+		$this->session->set($this->sessionKey, NULL);
 	}
 
 }
