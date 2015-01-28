@@ -10,8 +10,6 @@ class FlashMessages {
 
     private $sessionKey;
 
-
-
     /**
      * Contructor, sets session key.
      */
@@ -19,27 +17,15 @@ class FlashMessages {
 		$this->sessionKey = $sessionKey;
 	}
 
-
-
-
 	/**
 	 * Sets a new session key, copy the old values & cleans the old session key
 	 * @param [string] $newKey [The new session key]
 	 */
 	public function changeSessionKey($newKey) {
-		$messages = $this->findAll();
-		
-		/* if messages exist */
-		if(count($messages) > 0) {
-			$_SESSION[$newKey] = $messages;
-		}
-
+		$_SESSION[$newKey] = $this->findAll();
 		$this->clean();
 		$this->sessionKey = $newKey;
 	}
-
-
-
 
 	/**
 	 * Gets the session key
@@ -49,26 +35,20 @@ class FlashMessages {
 		return $this->sessionKey;
 	}
 
-
-
-
     /**
      * Finds all Flashmessages from session
      * @return all messages
      */
-    public function findAll(){
-    	if(isset($_SESSION[$this->sessionKey])) {
-    		return $_SESSION[$this->sessionKey];
-    	}
+    public function findAll() {
+		if(isset($_SESSION[$this->sessionKey])) {
+			return $_SESSION[$this->sessionKey];
+		}
 		return [];
 	}
 
-
-
-
 	/**
 	 * Adds a flash message to the session
-	 *
+	 * 
 	 * @param content (required), the message (can contain html)
 	 * @param type (required), the type of message "info", "warning", "success" or "error".
 	 *
@@ -76,7 +56,7 @@ class FlashMessages {
 	 */
 	public function add($content, $type) {
 
-		if($type !== "warning" && $type !== "success"  && $type !== "error") {
+		if($type !== "warning" && $type !== "success" && $type !== "error") {
 			$type = "info";
 		}
 
@@ -91,8 +71,6 @@ class FlashMessages {
 
 	}
 
-
-
 	/**
 	 * Adds an info message using the add method.
 	 * @param $content (required), the message
@@ -101,9 +79,6 @@ class FlashMessages {
 	public function addInfo($content) {
 		$this->add($content, "info");
 	}
-
-
-
 
 	/**
 	 * Adds a success message using the add method.
@@ -114,9 +89,6 @@ class FlashMessages {
 		$this->add($content, "success");
 	}
 
-
-
-
 	/**
 	 * Adds a warning message using the add method.
 	 * @param $content (required), the message
@@ -126,9 +98,6 @@ class FlashMessages {
 		$this->add($content, "warning");
 	}
 
-
-
-
 	/**
 	 * Adds an error message using the add method.
 	 * @param $content (required), the message
@@ -137,9 +106,6 @@ class FlashMessages {
 	public function addError($content) {
 		$this->add($content, "error");
 	}
-
-
-
 
 	/**
 	 * [getHtml description]
@@ -168,9 +134,6 @@ class FlashMessages {
 
 		return $html;
 	}
-
-
-
 
 	/**
 	 * Resets the flash message session
