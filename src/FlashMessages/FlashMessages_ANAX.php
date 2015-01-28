@@ -6,7 +6,7 @@ namespace PBjuhr\FlashMessages;
  * Class for generating and displaying flash messages.
  * @author Peter Bjuhr (www.pbjuhr.se, bjuhr.peter@gmail.com)
  */
-class FlashMessages {
+class FlashMessages_ANAX {
 
     use \Anax\DI\TInjectable;
 
